@@ -1,0 +1,10 @@
+keys: 
+  - &primary 5F2940129008087631B731F65471EBA658D9DD04
+  - &host age167qgcpdvm2ev9hdm4e7lhplj7p73u2jajyjsf3eea046ty8qmclqdaxuq5
+creation_rules:
+  - path_regex: nixos/common/secrets.yaml$
+    key_groups: 
+    - age: 
+      - *host
+      pgp:
+      - *primary
