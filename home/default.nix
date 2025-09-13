@@ -5,7 +5,10 @@
   self,
   ...
 }: {
-  imports = [inputs.impermanence.homeManagerModules.default];
+  imports = [
+    inputs.impermanence.homeManagerModules.default
+    ./programs/cli
+  ];
 
   home = {
     username = "laincy";
@@ -21,14 +24,12 @@
         "Programming"
       ];
 
+      files = [".local/share/fish/fish_history"];
+
       allowOther = true;
     };
 
-    packages = with pkgs; [
-      (self.packages.${pkgs.system}.laincy-nvim)
-      nurl
-      neofetch
-    ];
+    packages = [(self.packages.${pkgs.system}.laincy-nvim)];
 
     sessionVariables.EDITOR = "nvim";
   };
